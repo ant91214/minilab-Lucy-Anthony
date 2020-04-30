@@ -129,10 +129,10 @@ public class Person extends Resident {
 	public void personToWallCollision(Person p) {
 		
 		Rectangle personRect = new Rectangle(p.x,p.y, p.width, p.height);
-		for(int i = 0; i < Wall.walls.length;i++)
+		for(int i = 0; i < Control.walls.length;i++)
 		{
-			if(Wall.r[i].intersects(personRect))
-				if(Wall.walls[i].vertical)
+			if(Control.r[i].intersects(personRect))
+				if(Control.walls[i].vertical)
 				{
 					p.vx *= -1;
 				}
