@@ -131,7 +131,7 @@ public class Person extends Resident {
 		Rectangle personRect = new Rectangle(p.x,p.y, p.width, p.height);
 		for(int i = 0; i < Wall.walls.length;i++)
 		{
-			if(r[i].intersects(personRect))
+			if(Wall.r[i].intersects(personRect))
 				if(Wall.walls[i].vertical)
 				{
 					p.vx *= -1;
