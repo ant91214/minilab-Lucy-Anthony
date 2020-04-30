@@ -11,6 +11,7 @@ public class Control {
 		//Model and View
 		ArrayList<Person> model; //the community of Person objects	
 		Building view; //JPanel graphics window
+		Person person;
 		
 		// counters for "this" simulation instance
 		public int numInfected = 0;
