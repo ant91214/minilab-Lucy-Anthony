@@ -1,5 +1,6 @@
 package socialdistancing;
 
+import java.awt.Rectangle;
 import java.util.ArrayList;
 
 // A person contains properties of Health
@@ -123,6 +124,21 @@ public class Person extends Resident {
 		}else if(this.isCandidate() && p2.isInfected()) {
 			this.setInfected();
 		}				
+	}
+	
+	public void personToWallCollision(Person p) {
+		
+		Rectangle personRect = new Rectangle(p.x,p.y, p.width, p.height);
+		for(int i = 0; i < Wall.walls.length;i++)
+		{
+			if(r[i].intersects(personRect))
+				if(Wall.walls[i].vertical)
+				{
+					p.vx *= -1;
+				}
+				else
+					p.vy *= -1;
+		}
 	}
 	
 	/*
