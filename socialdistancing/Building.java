@@ -32,6 +32,7 @@ public class Building extends JPanel implements ActionListener{
 	int time = 0; //Track time as the simulation runs
 	
 	ArrayList<Wall> walls = new ArrayList<Wall>();
+	ArrayList<Rectangle> r = new ArrayList<Rectangle>();
 	Building view;
 	
 	/* constructor will setup our main Graphic User Interface - a simple Frame! */
@@ -61,6 +62,15 @@ public class Building extends JPanel implements ActionListener{
 				walls.add(hWall3);
 				walls.add(hWall4);
 
+				r.add(vWall1.getBounds());
+				r.add(vWall2.getBounds());
+				r.add(vWall3.getBounds());
+				r.add(vWall4.getBounds());
+				r.add(hWall1.getBounds());
+				r.add(hWall2.getBounds());
+				r.add(hWall3.getBounds());
+				r.add(hWall4.getBounds());
+				
 				
 		
 		// used for Control callback
