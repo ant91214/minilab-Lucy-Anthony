@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 // A person contains properties of Health
 public class Person extends Resident {
-	
+	Control control;
 	//health states
 	protected enum virus {candidate, infected, recovered, died};
 	
@@ -129,10 +129,10 @@ public class Person extends Resident {
 	public void personToWallCollision(Person p) {
 		
 		Rectangle personRect = new Rectangle(p.x,p.y, p.width, p.height);
-		for(int i = 0; i < Control.walls.length;i++)
+		for(int i = 0; i < control.walls.length;i++)
 		{
-			if(Control.r[i].intersects(personRect))
-				if(Control.walls[i].vertical)
+			if(control.r[i].intersects(personRect))
+				if(control.walls[i].vertical)
 				{
 					p.vx *= -1;
 				}
