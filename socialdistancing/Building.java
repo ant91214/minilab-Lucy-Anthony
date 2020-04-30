@@ -5,6 +5,7 @@ import java.awt.Graphics;
 import java.awt.Rectangle;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -30,6 +31,9 @@ public class Building extends JPanel implements ActionListener{
 	Timer timer; //Event control	
 	int time = 0; //Track time as the simulation runs
 	
+	ArrayList<Wall> walls = new ArrayList<Wall>();
+	Building view;
+	
 	/* constructor will setup our main Graphic User Interface - a simple Frame! */
 	public Building(Control ctl, String title) {
 		// walls put here
@@ -44,10 +48,21 @@ public class Building extends JPanel implements ActionListener{
 				Wall hWall2 = new Wall(-25, 160, "SocialDistancingImages/wall1.png", false);
 				Wall hWall3 = new Wall(620, 400, "SocialDistancingImages/wall1.png", false);
 				Wall hWall4 = new Wall(-25, 400, "SocialDistancingImages/wall1.png", false);
-				Wall[] walls = {vWall1, hWall1, vWall2, hWall2, vWall3, hWall3, vWall4, hWall4};
+				/*Wall[] walls = {vWall1, hWall1, vWall2, hWall2, vWall3, hWall3, vWall4, hWall4};
 				Rectangle[] r = {vWall1.getBounds(), hWall1.getBounds(), vWall2.getBounds(), hWall2.getBounds(),
-						vWall3.getBounds(), hWall3.getBounds(), vWall4.getBounds(), hWall4.getBounds()};
+						vWall3.getBounds(), hWall3.getBounds(), vWall4.getBounds(), hWall4.getBounds()};*/
+		
+				walls.add(vWall1);
+				walls.add(vWall2);
+				walls.add(vWall3);
+				walls.add(vWall4);
+				walls.add(hWall1);
+				walls.add(hWall2);
+				walls.add(hWall3);
+				walls.add(hWall4);
+
 				
+		
 		// used for Control callback
 		this.control = ctl;
 		
@@ -93,7 +108,7 @@ public class Building extends JPanel implements ActionListener{
 		
 		//events
 		super.paintComponent(g); // a necessary call to the parent paint method, required for proper screen refreshing
-		control.paintWalls(g);
+		paintWalls(g);
 		control.paintPersons(g); // repaint all objects in simulation
 		
 	} 
@@ -101,16 +116,16 @@ public class Building extends JPanel implements ActionListener{
 	public void paintWalls(Graphics g) {
 
 		//draws vertical walls
-		g.drawImage(vWall1.getImage(), vWall1.getX(), vWall1.getY(), view);
-		g.drawImage(vWall2.getImage(), vWall2.getX(), vWall2.getY(), view);
-		g.drawImage(vWall3.getImage(), vWall3.getX(), vWall3.getY(), view);
-		g.drawImage(vWall4.getImage(), vWall4.getX(), vWall4.getY(), view);
+		g.drawImage(walls.get(0).getImage(), walls.get(0).getX(), walls.get(0).getY(), view);
+		g.drawImage(walls.get(1).getImage(), walls.get(1).getX(), walls.get(1).getY(), view);
+		g.drawImage(walls.get(2).getImage(), walls.get(2).getX(), walls.get(2).getY(), view);
+		g.drawImage(walls.get(3).getImage(), walls.get(3).getX(), walls.get(3).getY(), view);
 		
 		//draws horizontal walls
-		g.drawImage(hWall1.getImage(), hWall1.getX(), hWall1.getY(), view);
-		g.drawImage(hWall2.getImage(), hWall2.getX(), hWall2.getY(), view);
-		g.drawImage(hWall3.getImage(), hWall3.getX(), hWall3.getY(), view);
-		g.drawImage(hWall4.getImage(), hWall4.getX(), hWall4.getY(), view);
+		g.drawImage(walls.get(4).getImage(), walls.get(4).getX(), walls.get(4).getY(), view);
+		g.drawImage(walls.get(5).getImage(), walls.get(5).getX(), walls.get(5).getY(), view);
+		g.drawImage(walls.get(6).getImage(), walls.get(6).getX(), walls.get(6).getY(), view);
+		g.drawImage(walls.get(7).getImage(), walls.get(7).getX(), walls.get(7).getY(), view);
 		
 		//sets text color
 		g.setColor(Color.BLACK);
